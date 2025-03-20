@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/write/write",
+    "pages/user/user"
+  ],
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "流水",
+        "iconPath": "images/tabBar/zhangdan_o.png",
+        "selectedIconPath": "images/tabBar/zhangdan_o1.png"
+      },
+      {
+        "pagePath": "pages/write/write",
+        "text": "记账",
+        "iconPath": "images/tabBar/jizhang.png",
+        "selectedIconPath": "images/tabBar/jizhang1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/tabBar/wode.png",
+        "selectedIconPath": "images/tabBar/wode1.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "个人记账",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
