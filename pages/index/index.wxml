@@ -1,7 +1,7 @@
 <view class="toggle">
   <view class="left">
     <text class="toggle-text">年纪录</text>
-    <van-switch checked="{{ checked }}" loading="{{false}}" size="45rpx" />
+    <van-switch custom-class="custom-switch" active-color="var(----default-color)" checked="{{ false }}" loading="{{false}}" size="45rpx" />
   </view>
   <view class="right">
     <van-button custom-class="custom-button" color="var(--default-color)" size="small">导出纪录</van-button>
@@ -50,3 +50,14 @@
     </view>
   </view>
 </view>
+<van-search
+  value="{{ value }}"
+  shape="round"
+  background="var(--grey-bg-color)"
+  placeholder="请输入搜索关键词"
+/>
+<van-cell-group inset>
+  <van-cell title="单元格" value="内容" label="描述信息" />
+</van-cell-group>
+<!-- 在页面内添加对应的节点 -->
+<van-notify id="van-notify" />

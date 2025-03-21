@@ -1,4 +1,8 @@
 /* 750rpx为屏幕总宽度 */
+page {
+  background-color: var(--grey-bg-color);
+}
+
 .grey-text {
   color: var(--grey-color);
   font-size: 15px;
@@ -15,6 +19,10 @@
   display: flex;
   flex-direction: column;
   margin-left: 25rpx;
+}
+
+.custom-switch {
+  border: 1px solid #fff !important;
 }
 
 .toggle .left .toggle-text {

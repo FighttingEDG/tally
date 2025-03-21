@@ -2,7 +2,10 @@
 page {
   /* 定义全局默认颜色 */
   --default-color: #34d6f0;
+  /* 灰字 */
   --grey-color: #56595d;
+  /* 默认灰背景色 */
+  --grey-bg-color: #f2f2f2;
   height: 100%;
   width: 750rpx;
   margin: 0;
