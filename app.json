@@ -5,8 +5,8 @@
     "pages/user/user"
   ],
   "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#1296db",
+    "color": "#000000",
+    "selectedColor": "#34d6f0",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
     "list": [
@@ -33,7 +33,7 @@
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "个人记账",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarBackgroundColor": "#34d6f0"
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",

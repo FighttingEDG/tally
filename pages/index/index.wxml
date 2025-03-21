@@ -1,5 +1,52 @@
-<!-- 流水 -->
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
+<view class="toggle">
+  <view class="left">
+    <text class="toggle-text">年纪录</text>
+    <van-switch checked="{{ checked }}" loading="{{false}}" size="45rpx" />
   </view>
-</scroll-view>
+  <view class="right">
+    <van-button custom-class="custom-button" color="var(--default-color)" size="small">导出纪录</van-button>
+  </view>
+</view>
+<view class="top-container">
+  <!-- 年月 -->
+  <view class="year-month">
+    <view class="time grey-text">
+      2025年
+    </view>
+    <van-icon name="play" class="icon-play" />
+    <view class="time">
+      <text class="month-num">3</text>月
+    </view>
+  </view>
+  <!-- 竖线占位 -->
+  <view class="placeholder-box">
+    <view class="placeholder"></view>
+  </view>
+  <!-- 月收入 -->
+  <view class="earning">
+    <view class="grey-text">
+      月收入
+    </view>
+    <view class="amount">
+      12000
+    </view>
+  </view>
+  <!-- 月支出 -->
+  <view class="expenditure">
+    <view class="grey-text">
+      月支出
+    </view>
+    <view class="amount">
+      298
+    </view>
+  </view>
+  <!-- 月结余 -->
+  <view class="surplus">
+    <view class="grey-text">
+      月结余
+    </view>
+    <view class="amount">
+      -11702
+    </view>
+  </view>
+</view>

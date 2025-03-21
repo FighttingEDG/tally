@@ -1,1 +1,107 @@
-/* 750rpx问屏幕总宽度 */
+/* 750rpx为屏幕总宽度 */
+.grey-text {
+  color: var(--grey-color);
+  font-size: 15px;
+}
+
+/* 切换 */
+.toggle {
+  background-color: var(--default-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+.toggle .left {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25rpx;
+}
+
+.toggle .left .toggle-text {
+  font-size: 14px;
+  color: #fff;
+}
+
+.toggle .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 25rpx;
+}
+
+.custom-button {
+  border: 1px solid #fff !important;
+  border-radius: 20rpx !important;
+}
+
+.top-container {
+  width: 750rpx;
+  height: 170rpx;
+  padding-top: 30rpx;
+  background-color: var(--default-color);
+  display: flex;
+}
+
+/* 年月 */
+.top-container .year-month {
+  width: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-container .year-month .time .month-num {
+  font-size: 22px;
+}
+
+.top-container .year-month .icon-play {
+  transform: rotate(90deg);
+}
+
+/* 竖线占位 */
+.top-container .placeholder-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.top-container .placeholder-box .placeholder {
+  width: 30rpx;
+  height: 50rpx;
+  border-right: 1px solid var(--grey-color);
+  margin-bottom: 20rpx;
+}
+
+/* 月收入 */
+.top-container .earning {
+  width: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 月支出 */
+.top-container .expenditure {
+  width: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 月结余 */
+.top-container .surplus {
+  width: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+}
