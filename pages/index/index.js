@@ -1,11 +1,16 @@
 // 首页逻辑区域
-import config from "../../utils/config/index.js"
-console.log(config.baseUrl)
-console.log(config.port)
-console.log(config.port)
-console.log(config.test_method())
+import { getRecord } from "../../service/index/indexService.js"
+
+async function getList() {
+    const res = await getRecord(12);
+    console.log(res);
+}
+
 Page({
   data: {
     
   },
+  onLoad() {
+    getList();
+  }
 })
