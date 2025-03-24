@@ -48,7 +48,7 @@
       月结余
     </view>
     <view class="amount">
-      {{12000 - disburseTotal}}
+      {{monthlyIncome - disburseTotal}}
     </view>
   </view>
 </view>
