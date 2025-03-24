@@ -10,6 +10,7 @@ page {
 
 /* 切换 */
 .toggle {
+  height: 120rpx;
   background-color: var(--default-color);
   display: flex;
   justify-content: space-between;
@@ -114,12 +115,22 @@ page {
   margin-bottom: 20rpx;
 }
 
+/* 搜索框 */
+.search-box {
+  height: 115rpx;
+}
+
 /* 支出列表 */
-.disburse-item {
+.list-box {
+  height: calc(100vh - 405rpx);
+  overflow-y: scroll;
+}
+
+.list-box .disburse-item {
   margin-bottom: 25rpx;
 }
 
-.disburse-item .top-item {
+.list-box .disburse-item .top-item {
   display: flex;
   justify-content: space-between;
   background-color: #fff;

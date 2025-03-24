@@ -1,4 +1,4 @@
-// 获取openid
+// 获取openid,本地无id会存id
 export const getOpenid = async function () {
   try {
     // 先从本地存储获取

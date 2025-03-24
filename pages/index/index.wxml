@@ -30,7 +30,7 @@
       月收入
     </view>
     <view class="amount">
-      12000
+      {{monthlyIncome}}
     </view>
   </view>
   <!-- 月支出 -->
@@ -39,7 +39,7 @@
       月支出
     </view>
     <view class="amount">
-      298
+      {{disburseTotal}}
     </view>
   </view>
   <!-- 月结余 -->
@@ -48,19 +48,22 @@
       月结余
     </view>
     <view class="amount">
-      -11702
+      {{12000 - disburseTotal}}
     </view>
   </view>
 </view>
-<van-search value="{{ value }}" shape="round" background="var(--grey-bg-color)" placeholder="请输入搜索关键词" />
-<van-cell-group inset wx:for="{{recordList}}" wx:for-item="item" wx:key="index">
-  <view class="disburse-item">
-    <view class="top-item grey-text">
-      <!-- 使用wxs渲染模板内容 -->
-      <text>{{getObjectWxs.getFirstKey(item)}}</text>
-      <text>支出总额：<text>{{getObjectWxs.computeAmount(item,getObjectWxs.getFirstKey(item))}}</text></text>
+<view class="search-box">
+  <van-search value="{{ value }}" shape="round" background="var(--grey-bg-color)" placeholder="请输入搜索关键词" />
+</view>
+<view class="list-box">
+  <van-cell-group inset wx:for="{{recordList}}" wx:for-item="item" wx:key="index">
+    <view class="disburse-item">
+      <view class="top-item grey-text">
+        <!-- 使用wxs渲染模板内容 -->
+        <text>{{getObjectWxs.getFirstKey(item)}}</text>
+        <text>支出总额：<text>{{getObjectWxs.computeAmount(item,getObjectWxs.getFirstKey(item))}}</text></text>
+      </view>
+      <van-cell wx:for="{{item[getObjectWxs.getFirstKey(item)]}}" wx:for-item="record" wx:key="id" title="{{record.name}}" value="-{{record.amount}}" label="{{record.detail}}" value-class="value-style" />
     </view>
-    <van-cell wx:for="{{item[getObjectWxs.getFirstKey(item)]}}" wx:for-item="record" wx:key="id" title="{{record.name}}" value="-{{record.amount}}" label="{{record.detail}}" value-class="value-style" />
-  </view>
-
-</van-cell-group>
+  </van-cell-group>
+</view>
