@@ -1,0 +1,29 @@
+// 必须在wxs中写方法处理wxml视图中的数据
+// 获取对象的第一个key
+var getFirstKey = function (obj) {
+  if (!obj) return '';
+  // 使用 JSON 方法处理对象
+  var str = JSON.stringify(obj);
+  // 去掉首尾的大括号
+  str = str.substring(1, str.length - 1);
+  // 获取第一个键值对
+  var firstPair = str.split(',')[0];
+  // 获取键名（去掉引号）
+  var reg = getRegExp('"', 'g');
+  var key = firstPair.split(':')[0].replace(reg, '');
+  return key;
+}
+// 计算日指出总额
+var computeAmount = function (item, key) {
+  var sum = 0;
+  for (var i = 0; i < item[key].length; i++) {
+    sum += item[key][i].amount;
+  }
+  return sum;
+}
+
+
+module.exports = {
+  getFirstKey: getFirstKey,
+  computeAmount: computeAmount
+};

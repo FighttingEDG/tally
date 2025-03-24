@@ -113,3 +113,20 @@ page {
   margin-left: 30rpx;
   margin-bottom: 20rpx;
 }
+
+/* 支出列表 */
+.disburse-item {
+  margin-bottom: 25rpx;
+}
+
+.disburse-item .top-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: 1px solid var(--grey-bg-color);
+  padding: 10px 16px;
+}
+
+.value-style {
+  color: #000 !important;
+}
