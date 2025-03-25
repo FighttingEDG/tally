@@ -21,9 +21,19 @@ var computeAmount = function (item, key) {
   }
   return sum;
 }
-
+// 时间戳转换年月
+var formatYearMonth = function (timestamp){
+  var date = getDate(timestamp); // 使用 getDate 替代 new Date
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1; 
+  return {
+    year: year,
+    month: month
+  }
+}
 
 module.exports = {
   getFirstKey: getFirstKey,
-  computeAmount: computeAmount
+  computeAmount: computeAmount,
+  formatYearMonth: formatYearMonth
 };

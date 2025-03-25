@@ -1,3 +1,4 @@
+import config from "../../utils/config/index"
 import {
   getOpenid
 } from "../../service/common.js"
@@ -17,9 +18,13 @@ Page({
     // 月收入
     monthlyIncome: 0,
     // 支出总额
-    disburseTotal: 0
+    disburseTotal: 0,
+    // 弹出层显示
+    sheetShow: false,
+    // 时间选择器
+    currentDate: new Date().getTime(),
+    minDate: config.minDate, // 配置内2025.2.1
   },
-
   async onLoad() {
     // 刚开始获取一遍openid,并且存下来
     this.setData({
@@ -28,11 +33,15 @@ Page({
     // 先获取用户个人信息(月收入，默认12000)
     await this.getUserInfo(this.data.userOpenid)
     // 获取数据列表
-    await this.getRecordList(this.data.userOpenid);
+    await this.getRecordList();
   },
   // 请求列表
-  async getRecordList(uid) {
-    const res = await getRecord(uid);
+  async getRecordList() {
+    const res = await getRecord({
+      uid: this.data.userOpenid,
+      month: new Date(this.data.currentDate).getMonth() + 1,
+      year: new Date(this.data.currentDate).getFullYear()
+    });
     this.setData({
       recordList: this.formatRecordList(res.data)
     })
@@ -41,7 +50,7 @@ Page({
   async getUserInfo(uid) {
     const res = await getUser(uid);
     this.setData({
-      monthlyIncome: res.data.monthlyIncome
+      monthlyIncome: res?.data?.monthlyIncome || 0
     })
   },
   // 处理数据
@@ -78,4 +87,24 @@ Page({
     }, []);
     return groupedData;
   },
+  // 弹窗
+  selectionTime() {
+    this.setData({
+      sheetShow: true
+    })
+  },
+  // 点击遮罩
+  // 关闭弹窗
+  closeSheet() {
+    this.setData({
+      sheetShow: false
+    })
+  },
+  async onConfirm(event) {
+    this.setData({
+      currentDate: event.detail,
+      sheetShow: false
+    })
+    await this.getRecordList();
+  }
 });

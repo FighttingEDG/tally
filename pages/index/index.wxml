@@ -1,5 +1,5 @@
 <!-- 引入wxs -->
-<wxs src="../../utils/handle/handlewxs.wxs" module="getObjectWxs"></wxs>
+<wxs src="../../utils/handle/handlewxs.wxs" module="objectWxs"></wxs>
 <view class="toggle">
   <view class="left">
     <text class="toggle-text">年纪录</text>
@@ -11,13 +11,13 @@
 </view>
 <view class="top-container">
   <!-- 年月 -->
-  <view class="year-month">
+  <view class="year-month" bind:tap="selectionTime">
     <view class="time grey-text">
-      2025年
+      {{objectWxs.formatYearMonth(currentDate).year}}
     </view>
     <van-icon name="arrow" class="icon-play" />
     <view class="time">
-      <text class="month-num">3</text>月
+      <text class="month-num">{{objectWxs.formatYearMonth(currentDate).month}}</text>月
     </view>
   </view>
   <!-- 竖线占位 -->
@@ -60,10 +60,17 @@
     <view class="disburse-item">
       <view class="top-item grey-text">
         <!-- 使用wxs渲染模板内容 -->
-        <text>{{getObjectWxs.getFirstKey(item)}}</text>
-        <text>支出总额：<text>{{getObjectWxs.computeAmount(item,getObjectWxs.getFirstKey(item))}}</text></text>
+        <text>{{objectWxs.getFirstKey(item)}}</text>
+        <text>支出总额：<text>{{objectWxs.computeAmount(item,objectWxs.getFirstKey(item))}}</text></text>
       </view>
-      <van-cell wx:for="{{item[getObjectWxs.getFirstKey(item)]}}" wx:for-item="record" wx:key="id" title="{{record.name}}" value="-{{record.amount}}" label="{{record.detail}}" value-class="value-style" />
+      <van-cell wx:for="{{item[objectWxs.getFirstKey(item)]}}" wx:for-item="record" wx:key="id" title="{{record.name}}" value="-{{record.amount}}" label="{{record.detail}}" value-class="value-style" />
     </view>
   </van-cell-group>
 </view>
+
+<!-- 弹出层 -->
+<van-action-sheet show="{{ sheetShow }}" title="请选择月份" bind:click-overlay="closeSheet" bind:close="closeSheet">
+  <view>
+    <van-datetime-picker type="year-month" value="{{ currentDate }}" min-date="{{ minDate }}" cancel-button-text="" bind:confirm="onConfirm" />
+  </view>
+</van-action-sheet>
