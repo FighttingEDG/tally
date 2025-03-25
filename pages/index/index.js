@@ -59,11 +59,9 @@ Page({
     this.setData({
       disburseTotal: list.reduce((acc, curr) => acc + curr.amount, 0)
     })
-    // 处理时间格式并按时间倒序排序
-    const sortedList = list.sort((a, b) => new Date(b.time) - new Date(a.time));
 
     // 使用 reduce 按日期分组
-    const groupedData = sortedList.reduce((acc, item) => {
+    const groupedData = list.reduce((acc, item) => {
       const formatDate = handleData(item.time)
 
       // 如果该日期已存在，添加到数组中
