@@ -31,6 +31,7 @@
     </view>
     <view class="amount">
       {{monthlyIncome}}
+      <van-icon custom-class="edit-icon" size="40rpx" name="edit" bind:click="editClick" />
     </view>
   </view>
   <!-- 月支出 -->
@@ -74,3 +75,7 @@
     <van-datetime-picker type="year-month" value="{{ currentDate }}" min-date="{{ minDate }}" cancel-button-text="" bind:confirm="onConfirm" />
   </view>
 </van-action-sheet>
+<!-- 弹出框，修改金额 -->
+<van-dialog use-slot title="修改月收入" show="{{ dialogShow }}" show-cancel-button bind:close="onDialogClose" bind:confirm="onDialogconfirm">
+  <van-field value="{{ earningValue }}" type="number" label="金额" placeholder="请输入金额" required bind:change="onFieldChange" />
+</van-dialog>

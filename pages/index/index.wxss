@@ -93,6 +93,16 @@ page {
   margin-bottom: 20rpx;
 }
 
+.top-container .earning .amount {
+  width: 200rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.top-container .earning .amount .edit-icon {
+  margin-left: 10rpx;
+}
+
 /* 月支出 */
 .top-container .expenditure {
   width: 150rpx;
@@ -141,3 +151,5 @@ page {
 .value-style {
   color: #000 !important;
 }
+
+/* 弹出框，修改金额 */

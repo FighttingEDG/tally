@@ -28,10 +28,25 @@ const request = (options) => {
 // 封装常用请求方法
 const http = {
   // 以函数方式定义对象，调用封装的request
-  get: (url, data) => request({ url, data }),
-  post: (url, data) => request({ url, data, method: 'POST' }),
-  put: (url, data) => request({ url, data, method: 'PUT' }),
-  delete: (url, data) => request({ url, data, method: 'DELETE' })
+  get: (url, data) => request({
+    url,
+    data
+  }),
+  post: (url, data) => request({
+    url,
+    data,
+    method: 'POST'
+  }),
+  put: (url, data) => request({
+    url,
+    data,
+    method: 'PUT'
+  }),
+  delete: (url, data) => request({
+    url,
+    data,
+    method: 'DELETE'
+  })
 }
 
 export default http
