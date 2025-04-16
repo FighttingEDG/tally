@@ -1,0 +1,6 @@
+<view class="custom-tabbar">
+  <view wx:for="{{list}}" wx:for-item="item" wx:key="id" class="tab-item {{selected ===item.id  ? 'active' : ''}}" bindtap="switchTab" data-index="{{item.id}}" data-path="{{item.pagePath}}">
+    <image src="{{selected === item.id ? item.selectedIconPath : item.iconPath}}" class="tab-icon" />
+    <text class="tab-text">{{item.text}}</text>
+  </view>
+</view>

@@ -12,6 +12,7 @@ import {
 import {
   handleData
 } from "../../utils/handle/fun.js";
+// 页面用Page
 Page({
   data: {
     // 用户openid
@@ -30,6 +31,16 @@ Page({
     dialogShow: false,
     earningValue: null
   },
+  // 页面显示时出发，后台切换，tab栏切换
+  onShow() {
+    // 可以直接拿到custom-tab-bar实例及里面的数据
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      }) // 对应list数组第一个元素设为活跃
+    }
+  },
+  // 页面加载时初始化数据
   async onLoad() {
     // 刚开始获取一遍openid,并且存下来
     this.setData({

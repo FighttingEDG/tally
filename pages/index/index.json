@@ -9,6 +9,7 @@
     "van-cell-group": "@vant/weapp/cell-group/index",
     "van-action-sheet": "@vant/weapp/action-sheet/index",
     "van-dialog": "@vant/weapp/dialog/index",
-    "van-field": "@vant/weapp/field/index"
+    "van-field": "@vant/weapp/field/index",
+    "custom-tab-bar": "../../custom-tab-bar/index"
   }
 }
