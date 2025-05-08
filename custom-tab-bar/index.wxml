@@ -1,6 +1,22 @@
 <view class="custom-tabbar">
   <view wx:for="{{list}}" wx:for-item="item" wx:key="id" class="tab-item {{selected ===item.id  ? 'active' : ''}}" bindtap="switchTab" data-index="{{item.id}}" data-path="{{item.pagePath}}">
-    <image src="{{selected === item.id ? item.selectedIconPath : item.iconPath}}" class="tab-icon" />
-    <text class="tab-text">{{item.text}}</text>
+    <!-- 正常tab栏样式 -->
+    <view class="keep-accounts" wx:if="{{item.id !== 2}}">
+      <image src="{{selected === item.id ? item.selectedIconPath : item.iconPath}}" class="tab-icon" />
+      <text class="tab-text">{{item.text}}</text>
+    </view>
+    <!-- 记账tab栏独有样式 -->
+    <view class="keep-accounts2" wx:if="{{item.id === 2}}">
+      <view class="accounts-box">
+        <view class="without">
+          <view class="img-box">
+            <image src="{{selected === item.id ? item.selectedIconPath : item.iconPath}}" class="tab-icon" />
+          </view>
+        </view>
+        <!-- 空盒子占位 -->
+        <view class="temp"></view>
+        <text class="tab-text">{{item.text}}</text>
+      </view>
+    </view>
   </view>
 </view>
