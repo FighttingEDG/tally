@@ -32,14 +32,7 @@ Page({
     earningValue: null
   },
   // 页面显示时出发，后台切换，tab栏切换
-  onShow() {
-    // 可以直接拿到custom-tab-bar实例及里面的数据
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 1
-      }) // 对应list数组第一个元素设为活跃
-    }
-  },
+  onShow() {},
   // 页面加载时初始化数据
   async onLoad() {
     // 刚开始获取一遍openid,并且存下来
@@ -57,12 +50,17 @@ Page({
   async insertUserService() {
     // 先查询用户是否存在
     const userRes = await getUserCount(this.data.userOpenid);
-    // 404代表用户不存在
-    if (userRes.code == 404) {
-      await insertUser({
-        uid: this.data.userOpenid
-      });
+    if (userRes.status === 'success') {
+      console.log(userRes)
+    }else{
+      // console.log(userRes)
     }
+    // 404代表用户不存在
+    // if (userRes.code == 404) {
+    //   await insertUser({
+    //     uid: this.data.userOpenid
+    //   });
+    // }
   },
   // 请求列表
   async getRecordList() {

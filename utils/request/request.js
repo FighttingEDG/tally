@@ -1,25 +1,33 @@
 import config from '../config/index.js'
-
+import {
+  failBack
+} from '../request/failRequest'
+// 非200状态码统一处理
 // 请求方法封装
 const request = (options) => {
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${config.baseUrl}:${config.port}${options.url}`,
+      // 默认get方法
       method: options.method || 'GET',
+      // 无数据就传空对象
       data: options.data || {},
       header: {
         'content-type': 'application/json',
         ...options.header
       },
       success: (res) => {
-        if (res.statusCode === 200) {
+        if (res.data.code === 200) {
           resolve(res.data)
         } else {
+          failBack(res.data.message)
           reject(res)
         }
       },
       fail: (err) => {
-        reject(err)
+        // 错误统一报服务器错误
+        failBack();
+        reject(res)
       }
     })
   })
