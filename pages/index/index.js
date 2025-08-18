@@ -65,7 +65,8 @@ Page({
   // 请求列表
   async getRecordList() {
     const res = await getRecord({
-      uid: this.data.userOpenid,
+      // uid: this.data.userOpenid,
+      uid: 'oGhGM5ZxByUfNQENEd5M1g4FnMao',
       month: new Date(this.data.currentDate).getMonth() + 1,
       year: new Date(this.data.currentDate).getFullYear()
     });
